@@ -28,15 +28,18 @@ $(document).ready(function() {
   ]
 
   for (var i = 0; i < arrayStudenti.length; i++) {
-    console.log(arrayStudenti[i].nome);
-    console.log(arrayStudenti[i].cognome);
+    $("#container").append("<p>" + arrayStudenti[i].nome + " " + arrayStudenti[i].cognome + "</p>");
   }
 
   var newStudent = {};
   newStudent.nome = prompt("inserisci il nome del nuovo studente");
   newStudent.cognome = prompt("inserisci il cognome del nuovo studente");
-  newStudent.eta = parseInt(prompt("inserisci il nome del nuovo studente"));
+  newStudent.eta = parseInt(prompt("inserisci l'età del nuovo studente"));
 
   arrayStudenti.push(newStudent);
-  console.log(arrayStudenti);
+  for (var i = 0; i < arrayStudenti.length; i++) {
+    for (var key in arrayStudenti[i]) {
+      $("#container").append("<p>" + arrayStudenti[i][key] + "</p>");
+    }
+  }
 });
